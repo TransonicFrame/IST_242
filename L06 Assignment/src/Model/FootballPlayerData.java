@@ -294,7 +294,7 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
     public boolean search(String searchTerm) {
         switch (getFieldIndex()) {
             case 0:
-                lineCounter = 0;
+                setLineCounter(0);
                 int number = Integer.parseInt(searchTerm);
                 if (getHashMapNumbers().containsKey(number)){
                     for (int i=0, k=0; i<getPlayers().size(); i++){
@@ -302,7 +302,7 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
                             FootballPlayer player = getPlayers().get(i);
                             getPlayers().remove(i);
                             getPlayers().add(k++, player);
-                            lineCounter++;
+                            setLineCounter(getLineCounter() + 1);
                         }
                     }
                     setSearchResult((Boolean) true);
@@ -312,13 +312,13 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
                 }   break;
             case 1:
                 if (getHashMapNames().containsKey(searchTerm)){
-                    lineCounter = 0;
+                    setLineCounter(0);
                     for (int i=0, k=0; i<getPlayers().size(); i++){
                         if (getPlayers().get(i).getName().equals(searchTerm)){
                             FootballPlayer player = getPlayers().get(i);
                             getPlayers().remove(i);
                             getPlayers().add(k++, player);
-                            lineCounter++;
+                            setLineCounter(getLineCounter() + 1);
                         }
                     }
                     setSearchResult((Boolean) true);
@@ -328,13 +328,13 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
                 }   break;
             case 2:
                 if (getHashMapPosition().containsKey(searchTerm)){
-                    lineCounter = 0;
+                    setLineCounter(0);
                     for (int i=0, k=0; i<getPlayers().size(); i++){
                         if (getPlayers().get(i).getPosition().equals(searchTerm)){
                             FootballPlayer player = getPlayers().get(i);
                             getPlayers().remove(i);
                             getPlayers().add(k++, player);
-                            lineCounter++;
+                            setLineCounter(getLineCounter() + 1);
                         }
                     }
                     setSearchResult((Boolean) true);
@@ -344,13 +344,13 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
                 }   break;
             case 3:
                 if (getHashMapHeight().containsKey(searchTerm)){
-                    lineCounter = 0;
+                    setLineCounter(0);
                     for (int i=0, k=0; i<getPlayers().size(); i++){
                         if ((getPlayers().get(i).getHeight().getFeet() +"'" +getPlayers().get(i).getHeight().getInches() +"\"").equals(searchTerm)){
                             FootballPlayer player = getPlayers().get(i);
                             getPlayers().remove(i);
                             getPlayers().add(k++, player);
-                            lineCounter++;
+                            setLineCounter(getLineCounter() + 1);
                         }
                     }
                     setSearchResult((Boolean) true);
@@ -361,13 +361,13 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
             case 4:
                 int weight = Integer.parseInt(searchTerm);
                 if (getHashMapWeight().containsKey(weight)){
-                    lineCounter = 0;
+                    setLineCounter(0);
                     for (int i=0, k=0; i<getPlayers().size(); i++){
                         if (getPlayers().get(i).getWeight()==weight){
                             FootballPlayer player = getPlayers().get(i);
                             getPlayers().remove(i);
                             getPlayers().add(k++, player);
-                            lineCounter++;
+                            setLineCounter(getLineCounter() + 1);
                         }
                     }
                     setSearchResult((Boolean) true);
@@ -377,13 +377,13 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
                 }   break;
             case 5:
                 if (getHashMapHometown().containsKey(searchTerm)){
-                    lineCounter = 0;
+                    setLineCounter(0);
                     for (int i=0, k=0; i<getPlayers().size(); i++){
                         if (getPlayers().get(i).getHometown().equals(searchTerm)){
                             FootballPlayer player = getPlayers().get(i);
                             getPlayers().remove(i);
                             getPlayers().add(k++, player);
-                            lineCounter++;
+                            setLineCounter(getLineCounter() + 1);
                         }
                     }
                     setSearchResult((Boolean) true);
@@ -393,13 +393,13 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
                 }   break;
             case 6:
                 if (getHashMapState().containsKey(searchTerm)){
-                    lineCounter = 0;
+                    setLineCounter(0);
                     for (int i=0, k=0; i<getPlayers().size(); i++){
                         if (getPlayers().get(i).getState().equals(searchTerm)){
                             FootballPlayer player = getPlayers().get(i);
                             getPlayers().remove(i);
                             getPlayers().add(k++, player);
-                            lineCounter++;
+                            setLineCounter(getLineCounter() + 1);
                         }
                     }
                     setSearchResult((Boolean) true);
@@ -409,13 +409,13 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
                 }   break;
             case 7:
                 if (getHashMapHighschool().containsKey(searchTerm)){
-                    lineCounter = 0;
+                    setLineCounter(0);
                     for (int i=0, k=0; i<getPlayers().size(); i++){
                         if (getPlayers().get(i).getHighSchool().equals(searchTerm)){
                             FootballPlayer player = getPlayers().get(i);
                             getPlayers().remove(i);
                             getPlayers().add(k++, player);
-                            lineCounter++;
+                            setLineCounter(getLineCounter() + 1);
                         }
                     }
                     setSearchResult((Boolean) true);
@@ -778,15 +778,15 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
         this.tableMemberindex = tableMemberindex;
     }
 
-    public void setPlayersArray(FootballPlayer[] playersArray) {
-        this.playersArray = playersArray;
-    }
-
     public int getLineCounter() {
         return lineCounter;
     }
 
     public void setLineCounter(int lineCounter) {
         this.lineCounter = lineCounter;
+    }
+
+    public void setPlayersArray(FootballPlayer[] playersArray) {
+        this.playersArray = playersArray;
     }
 }

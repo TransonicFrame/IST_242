@@ -132,7 +132,7 @@ public class Controller implements MouseListener
         getModel().getFpData().SetSortField(getView().getIF().getIp().getCP().getLabelArray().indexOf(e.getSource()));
         getModel().getFpData().setSearchByField(getView().getIF().getIp().getCP().getLabelArray().indexOf(e.getSource()));
         getModel().getFpData().sort(getModel().getFpData().getSortType(), getModel().getFpData().getSortField());
-        view.CenterUpdate(model.getFpData().getLines(model.getFpData().getFirstLineToDisplay(), model.getFpData().getLastLineToDisplay()), model.getFpData().getHeaders());
+        getView().CenterUpdate(getModel().getFpData().getLines(getModel().getFpData().getFirstLineToDisplay(), getModel().getFpData().getLastLineToDisplay()), getModel().getFpData().getHeaders());
         
         getView().getIF().getIp().getCP().validate();
         getView().getIF().getIp().getCP().repaint();
@@ -161,7 +161,7 @@ public class Controller implements MouseListener
                     if (getModel().getFpData().search(getView().getIF().getIp().getNP().getJtf().getText())){
                         setRed();
                         getModel().getFpData().setFirstLine(0);
-                        view.CenterUpdate(model.getFpData().getLines(model.getFpData().getFirstLineToDisplay(), model.getFpData().getLastLineToDisplay()), model.getFpData().getHeaders());
+                        getView().CenterUpdate(getModel().getFpData().getLines(getModel().getFpData().getFirstLineToDisplay(), getModel().getFpData().getLastLineToDisplay()), getModel().getFpData().getHeaders());
                     }
                     else {
                         getView().getIF().getIp().getNP().getJtf().setBackground(Color.red);
