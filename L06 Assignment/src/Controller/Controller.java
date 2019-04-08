@@ -157,13 +157,18 @@ public class Controller implements MouseListener
         getView().getIF().getIp().getNP().getJtf().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (getModel().getFpData().search(getView().getIF().getIp().getNP().getJtf().getText())){
-                    setRed();
-                    getModel().getFpData().setFirstLine(0);
-                    view.CenterUpdate(model.getFpData().getLines(model.getFpData().getFirstLineToDisplay(), model.getFpData().getLastLineToDisplay()), model.getFpData().getHeaders());
-                }
-                else {
-                    getView().getIF().getIp().getNP().getJtf().setBackground(Color.red);
+                try {
+                    if (getModel().getFpData().search(getView().getIF().getIp().getNP().getJtf().getText())){
+                        setRed();
+                        getModel().getFpData().setFirstLine(0);
+                        view.CenterUpdate(model.getFpData().getLines(model.getFpData().getFirstLineToDisplay(), model.getFpData().getLastLineToDisplay()), model.getFpData().getHeaders());
+                    }
+                    else {
+                        getView().getIF().getIp().getNP().getJtf().setBackground(Color.red);
+                    }
+                } catch (Exception a) {
+                    System.out.println(a.getMessage());
+                    System.out.println("Must select a header & sort type!");
                 }
             }
         });
