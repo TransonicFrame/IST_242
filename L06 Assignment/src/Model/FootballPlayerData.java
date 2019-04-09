@@ -191,28 +191,132 @@ public class FootballPlayerData implements TableData, Displayable, Sortable, Sea
             case 1:
                 switch (sortField) {
                     case 0:
-                        Collections.sort(getPlayers(), getSortPlayerByNumber());
+                        for (int i = 0; i < playersArray.length - 1; i++){
+                            int minIndex = i;
+                            for (int j = i + 1; j < playersArray.length; j++){
+                                if (playersArray[j].getNumber() < playersArray[minIndex].getNumber()){
+                                    minIndex = j;
+                                }
+                            }
+                            
+                            FootballPlayer temp = playersArray[minIndex];
+                            playersArray[minIndex] = playersArray[i];
+                            playersArray[i] = temp;
+                            
+                            rePopulateArrayList();
+                        }
                         break;
                     case 1:
-                        Collections.sort(getPlayers(), getSortPlayerByName());
+                        for (int i = 0; i < playersArray.length - 1; i++){
+                        int minIndex = i;
+                            for (int j = i + 1; j < playersArray.length; j++){
+                                if (0 > playersArray[j].getName().compareTo(playersArray[minIndex].getName())){
+                                    minIndex = j;
+                                }
+                            }   
+                        
+                            FootballPlayer temp = playersArray[minIndex];
+                            playersArray[minIndex] = playersArray[i];
+                            playersArray[i] = temp;
+
+                            rePopulateArrayList();
+                        }
                         break;
                     case 2:
-                        Collections.sort(getPlayers(), getSortPlayerByPosition());
+                        for (int i = 0; i < playersArray.length - 1; i++){
+                        int minIndex = i;
+                            for (int j = i + 1; j < playersArray.length; j++){
+                                if (0 > playersArray[j].getPosition().compareTo(playersArray[minIndex].getPosition())){
+                                    minIndex = j;
+                                }
+                            }   
+                        
+                            FootballPlayer temp = playersArray[minIndex];
+                            playersArray[minIndex] = playersArray[i];
+                            playersArray[i] = temp;
+
+                            rePopulateArrayList();
+                        }
                         break;
                     case 3:
-                        Collections.sort(getPlayers(), getSortPlayerByHeight());
+                        for (int i = 0; i < playersArray.length - 1; i++){
+                            int minIndex = i;
+                            for (int j = i + 1; j < playersArray.length; j++){
+                                if (playersArray[j].getHeight().getFeet() * 12 + playersArray[j].getHeight().getInches() < playersArray[minIndex].getHeight().getFeet() * 12 + playersArray[minIndex].getHeight().getInches()){
+                                    minIndex = j;
+                                }
+                            }
+                            
+                            FootballPlayer temp = playersArray[minIndex];
+                            playersArray[minIndex] = playersArray[i];
+                            playersArray[i] = temp;
+                            
+                            rePopulateArrayList();
+                        }
                         break;
                     case 4:
-                        Collections.sort(getPlayers(), getSortPlayerByWeight());
+                        for (int i = 0; i < playersArray.length - 1; i++){
+                            int minIndex = i;
+                            for (int j = i + 1; j < playersArray.length; j++){
+                                if (playersArray[j].getWeight() < playersArray[minIndex].getWeight()){
+                                    minIndex = j;
+                                }
+                            }
+                            
+                            FootballPlayer temp = playersArray[minIndex];
+                            playersArray[minIndex] = playersArray[i];
+                            playersArray[i] = temp;
+                            
+                            rePopulateArrayList();
+                        }
                         break;
                     case 5:
-                        Collections.sort(getPlayers(), getSortPlayerByHometown());
+                        for (int i = 0; i < playersArray.length - 1; i++){
+                        int minIndex = i;
+                            for (int j = i + 1; j < playersArray.length; j++){
+                                if (0 > playersArray[j].getHometown().compareTo(playersArray[minIndex].getHometown())){
+                                    minIndex = j;
+                                }
+                            }   
+                        
+                            FootballPlayer temp = playersArray[minIndex];
+                            playersArray[minIndex] = playersArray[i];
+                            playersArray[i] = temp;
+
+                            rePopulateArrayList();
+                        }
                         break;
                     case 6:
-                        Collections.sort(getPlayers(), getSortPlayerByState());
+                        for (int i = 0; i < playersArray.length - 1; i++){
+                        int minIndex = i;
+                            for (int j = i + 1; j < playersArray.length; j++){
+                                if (0 > playersArray[j].getState().compareTo(playersArray[minIndex].getState())){
+                                    minIndex = j;
+                                }
+                            }   
+                        
+                            FootballPlayer temp = playersArray[minIndex];
+                            playersArray[minIndex] = playersArray[i];
+                            playersArray[i] = temp;
+
+                            rePopulateArrayList();
+                        }
                         break;
                     case 7:
-                        Collections.sort(getPlayers(), getSortPlayerByHighschool());
+                        for (int i = 0; i < playersArray.length - 1; i++){
+                        int minIndex = i;
+                            for (int j = i + 1; j < playersArray.length; j++){
+                                if (0 > playersArray[j].getHighSchool().compareTo(playersArray[minIndex].getHighSchool())){
+                                    minIndex = j;
+                                }
+                            }   
+                        
+                            FootballPlayer temp = playersArray[minIndex];
+                            playersArray[minIndex] = playersArray[i];
+                            playersArray[i] = temp;
+
+                            rePopulateArrayList();
+                        }
                         break;
                     default:
                         break;
